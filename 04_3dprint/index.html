@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Digital Fabrication</title>
+    <link href="../style.css" rel="stylesheet">
+    <div class="top-header">
+      <h1>Class 05: Additive Manufacturing: 3D Printing</h1>
+      <div class="navbar">
+        <a href="../index.html"><div class="button">Home</div></a>
+        <a href="../about.html"><div class="button">About</div></a>
+        <a href="../project.html"><div class="button">Project</div></a>
+        <a href="../classes.html"><div class="button">Classes</div></a>
+      </div>
+    </div>
+</head>
+  <body>
+    <div class="background">
+    <div class="bodycontainer">
+      <div class="doccontainer">
+        <h1 class="tshadow tcenter">3D Scanning:</h1>
+        <p>
+          For the first half of the assignement, I needed to scan some sort of object and import it into 3D environment for printing. THe object I chose was my wallet. Using the RevoScanner software, along with a 3D scanning camera and turntable, I made a scan of my wallet in 3D, which I then fused into a mesh for editing.
+        </p>
+        <img class="bigimg" src="WalletScan.png">
+        <h2 class="tshadow">Fig. 5.1: Wallet scanned in RevoScanner</h2>
+        <p>
+          This next step involved me importing the mesh into RevoEditor, a software used for refining a 3D scan. Using this software, I trimmed excess parts of the scan and smoothed it out, creating a model I could easily print. 
+        </p>
+        <img class="bigimg" src="WalletPrusa.png">
+        <h2 class="tshadow">Fig. 5.2: Wallet imported into PrusaSlicer</h2>
+        <p> 
+          I then opened the final model in PrusaSlicer, slicing it for the 3D printer, and downscaling the print a bit for a shorter print time of 2 hours. I loaded the G-Code on the SD card, and then printed the model on the printer.
+        </p>
+          <img class="bigimg" src="WalletSliced.png">
+        <h2 class="tshadow">Fig. 5.3: Wallet sliced for printing</h2>
+        <p>
+          After about two hours of printing, here is the final product compared to the wallet  based it off of:
+        </p>
+          <img class="bigimg" src="WalletFinal.jpg">
+        <h2 class="tshadow">Fig. 5.4: Final product compared to reference </h2>
+        <h1 class="tshadow tcenter">Modeling for 3D printing:</h1>
+        <p>
+          For my choice of model to 3D-print, I decided to model a pair of bevel gears in Fusion 360. In order to do this, i first started with two spur gears made with the built in utility. One was made with 12 teeth, and the second was made with 20 teeth
+        </p>
+        </div>
+        <div class="imgcontainer">
+          <img class="img" src="Gear_01.png">
+          <img class="img" src="Gear_02.png">
+        </div>
+        <div class="doccontainer">
+        <h2 class="tshadow">Fig. 5.5: 20 tooth and 12 tooth spur gears, made with the listed parameters</h2>
+        <p>
+          I then used some math to make a new sketch on a different plane, and used that sketch as a guide to move the gears into position for making a bevel gear at a tilt of -59 degrees.
+        </p>
+        </div>
+        <div class="imgcontainer">
+          <img class="img" src="Gear_03.png">
+          <img class="img" src="Gear_04.png">
+        </div>
+        <div class="doccontainer">
+          <h2 class="tshadow">Fig. 5.6: Gear in position for beveling using another sketch </h2>
+          <p>
+            I then hid one of the gears, projected the sketch of the tooth used by the plugin to make the gear, and then lofted that shape along the line in the sketched rectangle. Then, using the circle part of the sketch, I used the Split Body tool to trim the excess of the gear tooth.
+          </p>
+        </div>
+        <div class="imgcontainer">
+          <img class="img" src="Gear_05.png">
+          <img class="img" src="Gear_06.png">
+        </div>
+        <div class="doccontainer">
+          <h2 class="tshadow">Fig. 5.7: Gear tooth made using loft tool </h2>
+          <p>
+            The next step was to sketch the profile for the gear body itself, and then use the revolve tool in order to form the body. After the revolve, the last step was to trim any excess of the gear teeth sticking out using the Split Body tool, and the using a circular pattern to evenly distribute the teeth along the gear body.
+          </p>
+        </div>
+        <div class="imgcontainer">
+          <img class="img" src="Gear_07.png">
+          <img class="img" src="Gear_08.png">
+        </div>
+        <div class="doccontainer">
+          <h2 class="tshadow">Fig. 5.8: Finished 12-tooth bevel gear</h2>
+          <p>
+            Now for the second gear, I simply repeated the process, but using the 20 toothed spur gear as my template. 
+          </p>
+        </div>
+        <div class="imgcontainer">
+          <img class="img" src="Gear_09.png">
+          <img class="img" src="Gear_10.png">
+        </div>
+        <div class="doccontainer">
+          <h2 Class="tshadow"> Fig. 5.9: Finished 20 tooth bevel gear</h2>
+          <p>Now that the models were complete, I imported them into PrusaSlicer, sliced them using the standard 0.20mm Quality preset, exported the G-code, and transferred the files to the printer.</p>
+        </div>
+        <div class="imgcontainer">
+          <img class="img" src="Gear_11.png">
+              <video class="img" autoplay loop muted>
+                <source src="gear.mp4" type="video/mp4">
+              </video>
+        </div>
+        <div class="doccontainer">
+          <h2 class="tshadow"> Fig. 5.10: Gears in PrusaSlicer and being printed</h2>
+          <p>
+            Here's the final result, after about 50 minutes of print time:
+          </p>
+        </div>
+        <div class="imgcontainer">
+          <img class="img" src="GearIrl.jpg">
+          <img class="img" src="GearIrl2.jpg">
+        </div>
+        <div class="doccontainer">
+          <h2 class="tshadow">Fig. 5.11: Final result for bevel gears</h2>
+        </div>
+    </div>
+    </div>
+    
+  </body>
+  <footer>  
+  </footer>

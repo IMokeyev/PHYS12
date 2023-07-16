@@ -1,38 +1,90 @@
 <!DOCTYPE html>
 <html lang="en">
-  <link href="../style.css" rel="stylesheet">
-<nav class="spacing">
-  <h1 style="text-decoration: underline; text-underline-offset: 7px;"> 3D Model Practice </h1>
-  <a  class="navbar" href="../index.html">Home</a> <br>
-  <a  class="navbar" href="../about.html">About</a> <br>
-  <a  class="navbar" href="../project.html">Projects</a>
-</nav>
-<body class="page">
-<h1 style="position: relative; top: -350px; font-size: 30px; font-family: Verdana;">Earbud model:</h1>
-<p class="projecttextleft" style="position: relative; top: -300px;"> For the first model, I decided to model the case of my earbuds in the closed position. Now in order to begin the model, I measured the basic dimensions of the base of the case, then made a sketch and extruded that sketch to the correct height.</p>
-<br>
-<img src="2dmodel_01.png" height="250" width="auto"	style="position: relative; top: -520px;" class="imageright">
-<p class="projecttextleft" style="position: relative; top: -510px;"> The next two steps were relatively simple; adding filles to round off the corners of the extruded prism, and then to add a new sketch on one of the faces for details such as the LED hole, the charging port, and the button next to it. After that, it was as simple as extruding those profiles in order to add the details.</p>
-<br>
-<img src="2dmodel_02.png" height="250" width="auto" style="position: relative; top: -750px;" class="imageright">
-<img src="2dmodel_03.png" height="250" width="auto" style="position: relative; top: -710px;" class="imageleft">
-<img src="2dmodel_04.png" height="250" width="auto" style="position: relative; top: -965px;" class="imageright">
-<img src="2dmodel_05.png" height="250" width="auto" style="position: relative; top: -900px;" class="imageleft">
-<img src="earbuds.jpg" height="250" width="auto" style="position: relative; top: -880px;" class="imageleft">
-<p class="projecttextright" style="position: relative; top:-1300px;">
-	Finally, the last detail was the notch that goes aroudn the entire case, seperating the case into the top and bottom parts. This was done using a sketch on an offset plane, along with the offset, extrude, and fillet tools. Here's the final product compared the case in real life!
-</p>
-<h1 style="position: relative; top: -1000px; font-size: 30px; font-family: Verdana;">Audio jack model:</h1>
-<p class="projecttextcenter" style="position:relative; top: -960px;">
-My next model was a simple 1/4" audio jack converter, which I made by using mostly the loft, extrude, offset, fillet, and offset plane tools. 
-</p>
-<img src="jack_dimensions.png" height="400" width="auto" style="position: relative; top:-900px;" class="imageleft">
-<img src="jack_02.png" height="400" width="auto" style="position: relative; top: -1310px;" class="imageright">
-<img src="jack_03.png" height="400" width="auto" style="position: relative; top: -1300px;" class="imageleft">
-<img src="jack_final.png" height="400" width="auto" style="position: relative; top: -1710px;" class="imageright">
-<img src="jackphoto.jpg" height="400" width="auto" style="position: relative; top: -1710px;" class="imagecenter">
+<head>
+    <title>Digital Fabrication</title>
+    <link href="../style.css" rel="stylesheet">
+    <div class="top-header">
+      <h1>Class 03+04: Kinetic Sculpture</h1>
+      <div class="navbar">
+        <a href="../index.html"><div class="button">Home</div></a>
+        <a href="../about.html"><div class="button">About</div></a>
+        <a href="../project.html"><div class="button">Project</div></a>
+        <a href="../classes.html"><div class="button">Classes</div></a>
+      </div>
+    </div>
+</head>
+  <body>
+    <div class="background">
+        <div class="bodycontainer">
+          <div class="doccontainer">
+            <h1 class="tshadow tcenter">
+              Earbuds model:
+            </h1>
+            <p>
+              For the first model, I decided to model the case of my earbuds in the closed position. Now in order to begin the model, I measured the basic dimensions of the base of the case, then made a sketch and extruded that sketch to the correct height.
+            </p>
+          </div>
+          <div class="imgcontainer">
+            <img class="img" src="2dmodel_01.png">
+            <img class="img" src="2dmodel_02.png">
+          </div>
+          <div class="doccontainer">
+            <h2 class="tshadow">Fig. 3.1: Basic box as base for design</h2>
+            <p>
+              The next two steps were relatively simple; adding fillets to round off the corners of the extruded prism, and then to add a new sketch on one of the faces for details such as the LED hole, the charging port, and the button next to it. After that, it was as simple as extruding those profiles in order to add the details.
+            </p>
+          </div>
+          <div class="imgcontainer">
+             <img class="img" src="2dmodel_03.png">
+             <img class="img" src="2dmodel_04.png">
+          </div>
+          <div class="doccontainer">
+            <h2 class="tshadow">Fig. 3.2: Added details through sketch on box and fillet tool</h2>
+            <p>
+              Finally, the last detail was the notch that goes around the entire case, separating the case into the top and bottom halves. This was done using a sketch on an offset plane, along with the offset, extrude, and fillet tools.
+            </p>
+            <img class="bigimg" src="2dmodel_05.png">
+            <h2 class="tshadow">Fig. 3.3: Final result with hinge detail</h2>
+            <p>
+              Here's the case in real life!
+            </p>
+            <img class="bigimg" src="earbuds.jpg">
+            <h2 class="tshadow">Fig. 3.4: Basis for earbud CAD model</h2>
+          </div>
+          <div class="doccontainer">
+            <h1 class="tcenter tshadow">
+              Audio Jack model:
+            </h1>
+            <p>
+              The next model I chose to CAD was this quarter-inch audio jack adapter that I use for my headphones occasionally. For this model, I used a clever sequence of loft's and extrudes, along with some fillets for detail. I first started with the base sketch.
+            </p>
+            <img class="bigimg" src="jack_dimensions.png">
+            <h2 class="tshadow">Fig. 3.5: Base sketch for Jack</h2>
+            <p> 
+              I then lofted and extruded these features to create the first section of the jack.
+            </p>
+            <img class="bigimg" src="jack_02.png">
+            <h2 class="tshadow">Fig. 3.6: Lofted and extruded features</h2>
+            <p> 
+              Then I used offset planes to create the next layer of sketches to loft.
+            </p>
+            <img class="bigimg" src="jack_03.png">
+            <h2 class="tshadow">Fig. 3.7: Second offset sketch</h2>
+            <p>
+              The last step was to loft these features and then use a fillet to add details to the print.  
+            </p>
+            <img class="bigimg" src="jack_final.png">
+            <h2 class="tshadow">Fig. 3.8: Final loft and extrude with fillet/chamfer details</h2>
+            <p> 
+              Heres the jack in real life for comparison!
+            </p>
+            <img class="bigimg" src="jackphoto.jpg">
+            <h2 class="tshadow">Fig. 3.9: Basis for jack CAD model</h2>
+          </div>
+        </div>
 
-
-
-</body>
-</html>
+    </div>
+    
+  </body>
+  <footer>  
+  </footer>

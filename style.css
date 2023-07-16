@@ -13,7 +13,18 @@
   --clr-violet: #a78bfa;
   --clr-yellow: #facc15;
   --clr-trans: #00FFFFFF;
-  overflow: hidden;
+  overflow-x: hidden;
+  overflow-y:   auto;
+}
+
+.bodycontainer {
+    display: flex;
+    flex-direction:  column;
+    gap:  3vh;
+    width:  100%;
+    height:   auto;
+    padding-top: 10vh;
+    padding-bottom: 10vh;
 }
 
 @keyframes slideNfadeLeft {
@@ -37,26 +48,12 @@
 
 .top-header {
   display: flex;
-  position: static;
+  position: fixed ;
   top: 0px;
   left: 0px;
   width:  100%;
   height: 75px;
   background-color: var(--clr-graphite);
-  color: var(--clr-light);
-  z-index: 1;
-  padding-left: 20px;
-  padding-right: 20px;
-} 
-
-.footer {
-  display: flex;
-  position: static;
-  bottom: 0px;
-  left: 0px;
-  width:  100%;
-  height: 50px;
-  background-color: var(--clr-yellow);
   color: var(--clr-light);
   z-index: 1;
   padding-left: 20px;
@@ -74,18 +71,20 @@
   justify-content: flex-end;
   padding: 15px;
   gap: 3em;
+  overflow: visible ;
 }
 
 .button {
-  font-size: 2rem;
-  font-weight: 5px;
+  font-size: 2.2rem;
+  font-weight: 10px;
   padding: 0.5em, 1em;
   color: var(--clr-light);
   transition: transform 0.3s;
+  overflow: visible;
 }
 
 .button:hover {
-  transform: translateY(-7px);
+  transform: scale(1.1);
 }
 
 .solidbtn {
@@ -138,13 +137,19 @@
 }
 
 .img4{
-  background-image: url("01_intro/WebsiteCode.png");
+  background-image: url("04_3dprint/WalletSliced.png");
   background-size:  contain;
 }
 
-.img5{
-  background-image: url("01_intro/WebsiteCode.png");
+.img01{
+  background-image: url("02_2ddesign/2dmodel_05.png");
   background-size:  contain;
+}
+
+
+
+.shadow{
+  box-shadow: 10px 10px 20px var(--clr-dark);
 }
 
  .container{
@@ -154,9 +159,24 @@
   flex-direction: column;
   color: var(--clr-light);
   width: 80vh;
-  height: 50vh;
-  padding: 20vh;
+  height: auto;
+  padding-top: 15vh;
   gap: 30px;
+  overflow-y: hidden;
+ }
+
+ .doccontainer{
+  margin:   auto;
+  display: flex;
+  justify-content: flex-start;
+  align-content:  flex-start;
+  flex-direction: column;
+  color: var(--clr-light);
+  width: 100vh;
+  height: auto;
+  gap: 30px;
+  overflow-y: hidden;
+
  }
 
 .clsimgcontainer{
@@ -166,13 +186,47 @@
   flex-direction:  row;
   flex-wrap: wrap;
   width: 120vh;
-  height: 80vh;  
+  height: auto;  
   margin:   auto;
-  padding-top: 10vh;
   gap: 2vh;
   overflow:   visible ;
 }
 
+.imgcontainer{
+  display: flex;
+  justify-content: space-evenly;
+  align-content: flex-start;
+  flex-direction:  row;
+  flex-wrap: wrap;
+  width: 100vh;
+  height: auto;  
+  margin:   auto;
+  gap: 2vh;
+  overflow:   visible ;
+}
+
+.img {
+  height: 20em;
+  width: auto;
+  box-shadow: 10px 10px 20px var(--clr-dark);
+  overflow: visible;
+}
+ .bigimg {
+  height: auto;
+  width: 35em;
+  box-shadow: 10px 10px 20px var(--clr-dark);
+  overflow: visible;
+  display: inline-flex;
+  margin: auto;
+ }
+
+ .codesnip {
+  background-color: rgb( 40, 40, 40);
+  box-shadow: 10px 10px 20px var(--clr-dark);
+  width: 100%;
+  height: auto;
+  padding: 2vh;
+ }
 
 h1{
   font-size: 40px;
@@ -189,8 +243,22 @@ h2{
   text-align: center;
 }
 
+p{
+  font-size: 22px;
+  font-weight: 3px;
+  padding: 2px;
+}
+
 .tshadow {
   text-shadow: 2px 2px 2px var(--clr-dark);
+}
+
+.tcenter{
+  text-align: center;
+}
+
+.tleft{
+  text-align:   left;
 }
 
  a {
@@ -200,5 +268,5 @@ h2{
 
 
  .mainAnim {
-  animation: slideNfadeLeft 1.2s ease-out 0s 1;
+  animation: slideNfadeLeft 0.75s ease-out 0s 1;
  }
