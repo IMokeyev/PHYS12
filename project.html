@@ -15,7 +15,33 @@
 </head>
   <body>
     <div class="background">
-      
+    <div class="bodycontainer">
+    	<div class="doccontainer">
+    	<h1>Handy: An ASL learning tool</h1>
+    	<p>
+    		I've been working on learning ASL for a bit now, and the very first thing I started with, just as anyone, is the ASL alphabet. Now one thing I sometimes tended to struggle with is getting the gestures right, and I personally love learning by example, especially in person. My idea is to make a robot hand that could model those gestures, eliminating the need for an ASL teacher for a visual learner. My first prototype will just be a hand on a base, without any arm for additional movement as that would be too complicated for a base. The ASL alphabet doesn't require any additional movement for gestures other thn the hand itself, so this prototype would be perfect for that purpose. I would also like to implement a camera hand tracking system through my laptop to tell if you get the gesture correct, though that could be a feature for implementation outside of the scope of the class.
+    	</p>
+
+    	<p>
+    		In order to create this project, I would likely use 3D printing for most of the parts, and I have been researching print in place techniques for the joints in the fingers. Here are some examples:
+    	</p>
+    	</div>
+    	<div class="imgcontainer">
+    		<img class="img" src="Project/SoftPros.png">
+    		<img class="img" src="Project/PIPHinge.jpg">
+    		<img class="img" src="Project/PIPBall.png">
+    		<img class="img" src="Project/3DPros.jpg">
+    	</div>
+    	<div class="doccontainer">
+    		<h2 class="tshadow">Concepts for hand design including PIP joints</h2>
+    		<p>
+    			For the software, I was thinking of using a value array system for storing positions in the hand. Everytime you would want a new gesture, the hand would reset, and then move into position for the new gesture using the data from the assigned array. This would create an easy way to store the gestures. I could create a library of them that could then be accessed from a seperate program for operating the actuators themselves. 
+    		</p>
+    		<p>
+    			In order to control the fingers on the hand, my thought was to use small servos with a pulley assembly to operate artificial tendons on the fingers. Not only will servos give me precise control, they would also allow me to read their position while manually adjusting them. This would give me an advantage for storing gestures as rather than having to go through trial and error with set values, I could manually move them into position for the gesture and then store those values. 
+    		</p>
+    	</div>
+    </div>
     </div>
     
   </body>
