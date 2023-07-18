@@ -39,6 +39,31 @@
   }
 }
 
+@keyframes slideNfadeUp {
+  0% {
+    transform: translateY(10%);
+    opacity: 0;
+  }
+
+  100% {
+    transform: translateY(0%);
+    opacity: 1;
+  }
+}
+
+@keyframes scaleNfadeIn {
+  0% {
+    transform: scale(98%);
+    opacity: 0;
+  }
+
+  100% {
+    transform: scale(100%);
+    opacity: 1;
+  }
+}
+
+
 .background{
   width: 100%;
   height: 100vh;
@@ -269,4 +294,12 @@ p{
 
  .mainAnim {
   animation: slideNfadeLeft 0.75s ease-out 0s 1;
+ }
+
+ .bodyAnim {
+  animation: slideNfadeUp 0.5s ease-out 0s 1;
+ }
+
+ .docAnim {
+  animation: scaleNfadeIn 0.5s ease-out 0s 1;
  }
