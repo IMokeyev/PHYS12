@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Digital Fabrication</title>
+    <link href="../style.css" rel="stylesheet">
+    <div class="top-header">
+      <h1>Class 07: Output Devices</h1>
+      <div class="navbar">
+        <a href="../index.html"><div class="button">Home</div></a>
+        <a href="../about.html"><div class="button">About</div></a>
+        <a href="../project.html"><div class="button">Project</div></a>
+        <a href="../classes.html"><div class="button">Classes</div></a>
+      </div>
+    </div>
+</head>
+  <body>
+    <div class="background">
+    <div class="bodycontainer ">
+      <div class="doccontainer">
+        <h1 class="tcenter tshadow">Output device: Internet radio with volume control</h1>
+        <p>
+          For my output device project, I decided to use a DAC module I had on hand with ESP32's I2S feature and wifi capabilities to make an internet radio with volume control. This device connects to an MP3 radio station online through Wi-Fi (in this case, a Swiss jazz radio statio because why not), decodes it using the <a class="underline" href="https://github.com/mkopa/libhelix-esp32-arduino"> Helix MP3 encoder library</a>, send it to I2S using <a class="  underline" href="https://github.com/pschatzmann/arduino-audio-tools">Phil Schatzmann's ESP32 audio library</a>, and then output it the DAC module. Here's the circuit I built, including a potetiometer for adjusting volume as my input device. 
+        </p>
+        <img class="bigimg" src="schematic.png">
+        <h2 class="tshadow">Fig. 7.1: Circuit diagram (Not exact DAC I used but still I2S)</h2>
+        <p> 
+          This project uses some complicated code hidden through the use of the audio library I previously mentioned, and it includes class systems for setting up I2S and configuring/updating the volume through a function: 
+        </p>
+        <div class="codesnip">
+              <pre>
+              <code>
+                #include "AudioTools.h"
+#include "AudioCodecs/CodecMP3Helix.h"
+
+
+const int potpin = 34; // GPIO 32 for analog input
+int potval = 0;
+
+URLStream url("Ivan's Galaxy S22", "irrh8198");
+I2SStream i2s; // final output of decoded stream
+VolumeStream volume(i2s);
+EncodedAudioStream dec(&volume, new MP3DecoderHelix()); // Decoding stream
+StreamCopy copier(dec, url); // copy url to decoder
+
+void setup() {
+  Serial.begin(115200);
+  AudioLogger::instance().begin(Serial, AudioLogger::Info);
+
+  // setup i2s
+  auto config = i2s.defaultConfig(TX_MODE);
+  // define e.g your pins and change other settings
+  config.pin_ws = 26;
+  config.pin_bck = 14;
+  config.pin_data = 27;
+  //config.mode = I2S_STD_FORMAT;
+  // mp3 radio
+  url.begin("http://stream.srg-ssr.ch/m/rsj/mp3_128", "audio/mp3");
+
+  volume.begin(config);
+
+
+}
+
+void updateVolume() {
+  potval = analogRead(potpin);
+  long potentiometerValue = map(potval, 0, 4095, 0, 100);
+  float volumeValue = potentiometerValue/100.0; // Adjust the range to match 0-1 volume range
+  volume.setVolume(volumeValue);
+  Serial.println(volumeValue);
+}
+
+void loop() {
+  updateVolume();
+  copier.copy();
+}
+ i2s.begin(config);
+
+  // setup I2S based on the sampling rate provided by the decoder
+  dec.setNotifyAudioChange(i2s);
+  dec.begin();
+
+ 
+              </code>
+            </pre>
+        </div>
+        <div class="doccontainer">
+          <h2 class="tshadow">Fig. 7.2: Code that makes this project work</h2>
+          <p> 
+            Now with the code out of the way, here is the project itself, powered by a micro-USB cable connect to an outlet through a phone charger. In this example, I'll be playing the radio through my headphones since I don't have access to any other AUX output devices. 
+          </p>
+        </div>
+        <div class="imgcontainer">
+          <img class="img" src="output_01.jpg">
+          <img class="img" src="output_02.jpg">
+          <video class="img" controls>
+                <source src="output_vid.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="doccontainer">
+          <h1 class="tcenter tshadow">Oscilloscope Analysis</h1>
+          <p>In order to understand what's going on under the hood of I2S, it's important to analyze the outputs under an oscilloscope. In this case, I examined the BitClock (BCK), WordClock (LCK), and Data (DIN) pins.</p>
+          <img class="bigimg" src="bitclock.jpg">
+          <h2 class="tshadow">Fig. 7.3: Bitclock analysis. Clock is at 1.4112 MHz for CD audio quality bitrate (48 kHz)</h2>
+          <img class="bigimg" src="data.jpg">
+          <h2 class="tshadow">Fig. 7.4: Data analysis. Varies around 300 KHz</h2>
+          <img class="bigimg" src="wordclock.jpg">
+          <h2 class="tshadow">Fig. 7.5: Word clock analysis. WC deals with switching data between left and right channels, hence why it matches the bitrate of the audio</h2>
+        </div>
+      </div>
+    </div>
+    </div>
+    
+  </body>
+  <footer>  
+  </footer>
